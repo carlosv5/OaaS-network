@@ -24,9 +24,11 @@ LOG = logging.getLogger(__name__)
 FWAAS_DRIVER_NAME = 'Fwaas iptables driver'
 FWAAS_DEFAULT_CHAIN = 'fwaas-default-policy'
 
+#OaaS
 FWAAS_TO_IPTABLE_ACTION_MAP = {'allow': 'ACCEPT',
                                'deny': 'DROP',
-                               'reject': 'REJECT'}
+                               'reject': 'REJECT',
+				'optimize': 'NFQUEUE'}
 INGRESS_DIRECTION = 'ingress'
 EGRESS_DIRECTION = 'egress'
 CHAIN_NAME_PREFIX = {INGRESS_DIRECTION: 'i',

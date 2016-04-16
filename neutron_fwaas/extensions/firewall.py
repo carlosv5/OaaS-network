@@ -28,12 +28,12 @@ import six
 
 
 LOG = logging.getLogger(__name__)
-
+#OaaS
 # Firewall rule action
 FWAAS_ALLOW = "allow"
 FWAAS_DENY = "deny"
 FWAAS_REJECT = "reject"
-
+FWAAS_OPTIMIZE = "optimize"
 # Firewall resource path prefix
 FIREWALL_PREFIX = "/fw"
 
@@ -164,7 +164,7 @@ class FirewallRuleConflict(nexception.Conflict):
 fw_valid_protocol_values = [None, constants.PROTO_NAME_TCP,
                             constants.PROTO_NAME_UDP,
                             constants.PROTO_NAME_ICMP]
-fw_valid_action_values = [FWAAS_ALLOW, FWAAS_DENY, FWAAS_REJECT]
+fw_valid_action_values = [FWAAS_ALLOW, FWAAS_DENY, FWAAS_REJECT, FWAAS_OPTIMIZE]
 
 
 def convert_protocol(value):
