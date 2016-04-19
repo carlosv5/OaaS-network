@@ -209,10 +209,16 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
             else:
                 ver = IPV6
                 table = ipt_mgr.ipv6['filter']
-            ichain_name = self._get_chain_name(fwid, ver, INGRESS_DIRECTION)
-            ochain_name = self._get_chain_name(fwid, ver, EGRESS_DIRECTION)
-            table.add_rule(ichain_name, iptbl_rule)
-            table.add_rule(ochain_name, iptbl_rule)
+#OaaS
+            if  rule.get('action') == 'optimize':
+                chain_name = 'FORWARD'
+                table.add_rule(chain_name,iptbl_rule)
+            else:
+                ichain_name = self._get_chain_name(fwid, ver, INGRESS_DIRECTION)
+                ochain_name = self._get_chain_name(fwid, ver, EGRESS_DIRECTION)
+                table.add_rule(ichain_name, iptbl_rule)
+                table.add_rule(ochain_name, iptbl_rule)
+
         self._enable_policy_chain(fwid, ipt_if_prefix)
 
     def _remove_default_chains(self, nsid):
