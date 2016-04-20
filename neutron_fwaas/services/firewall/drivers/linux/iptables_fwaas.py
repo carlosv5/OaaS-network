@@ -28,7 +28,7 @@ FWAAS_DEFAULT_CHAIN = 'fwaas-default-policy'
 FWAAS_TO_IPTABLE_ACTION_MAP = {'allow': 'ACCEPT',
                                'deny': 'DROP',
                                'reject': 'REJECT',
-				'optimize': 'NFQUEUE'}
+				'optimize': 'NFQUEUE --queue-num 0 --queue-bypass'}
 INGRESS_DIRECTION = 'ingress'
 EGRESS_DIRECTION = 'egress'
 CHAIN_NAME_PREFIX = {INGRESS_DIRECTION: 'i',
