@@ -1,0 +1,376 @@
+# Marian T <marian.tort@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-09-26 08:59+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-11 01:52+0000\n"
+"Last-Translator: Marian T <marian.tort@gmail.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"X-Generator: Zanata 3.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"        Utilizado <span> %(used)s </span>(Sin límite)"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr ""
+"\n"
+"        Utilizado <span> %(used)s </span>de<span> %(available)s </span>"
+
+#, python-format
+msgid ""
+"\n"
+"      <label>From:</label> %(start)s"
+msgstr ""
+"\n"
+"      <label>De:</label> %(start)s"
+
+#, python-format
+msgid ""
+"\n"
+"      <label>To:</label>%(end)s"
+msgstr ""
+"\n"
+"      <label>A:</label>%(end)s"
+
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"Si no está seguro del método de autenticación a utilizar, contacte con su "
+"administrador."
+
+#, python-format
+msgctxt "past"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+#, python-format
+msgctxt "present"
+msgid "%(action)s %(data_type)s"
+msgstr "%(action)s %(data_type)s"
+
+#, python-format
+msgid "%(action)s: %(objs)s"
+msgstr "%(action)s: %(objs)s"
+
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
+
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
+
+#, python-format
+msgid "%(size)d Byte"
+msgid_plural "%(size)d Bytes"
+msgstr[0] "%(size)d bite"
+msgstr[1] "%(size)d bites"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, python-format
+msgid "%s PB"
+msgstr "%s PB"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, python-format
+msgid "%s completed successfully."
+msgstr "%s completado correctamente."
+
+#, python-format
+msgid "%s did not complete."
+msgstr "%s no completado."
+
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Prev"
+
+msgid "(No Limit)"
+msgstr "(Sin Límite)"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 Bytes"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "Un %(resource)s con el nombre \"%(name)s\" ya existe."
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "Active Instances:"
+msgstr "Instancias activas:"
+
+msgid "Active RAM:"
+msgstr "RAM activa:"
+
+msgid "Add a row"
+msgstr "Agregar una fila"
+
+msgid "All available"
+msgstr "Todos los disponibles"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "Back"
+msgstr "Anterior"
+
+msgid "Cancel"
+msgstr "Cancelar "
+
+msgid "Connect"
+msgstr "Conectar"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Deleted"
+msgstr "Eliminado"
+
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "Mostrando %(content_items)s articulo"
+msgstr[1] "Mostrando %(content_items)s articulos"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Mostrando %(counter)s articulo"
+msgstr[1] "Mostrando %(counter)s articulos"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "Mostrando %(nav_items)s articulo"
+msgstr[1] "Mostrando %(nav_items)s articulos"
+
+msgid "Error: "
+msgstr "Error: "
+
+msgid "Fake"
+msgstr "Falso"
+
+msgid "Filter"
+msgstr "Filtrar"
+
+msgid "Horizon"
+msgstr "Horizon"
+
+msgid "Incorrect format for IP address"
+msgstr "Formato de dirección IP incorrecto"
+
+msgid "Info: "
+msgstr "Info:"
+
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr "Entrada de metadata invalida, pares clave=valor separado por coma"
+
+msgid "Invalid subnet mask"
+msgstr "Máscara de red no válida"
+
+msgid "Invalid version for IP address"
+msgstr "Versión de dirección IP no válida"
+
+msgid "Limit Summary"
+msgstr "Resumen"
+
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+msgid "Login"
+msgstr "Usuario"
+
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Inicie sesión con otro usuario o volver a la <a href=\"%(home_url)s\"> "
+"página de inicio</a>"
+
+msgid "Members"
+msgstr "Miembros"
+
+msgid "More Actions"
+msgstr "Más acciones"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "Navigation Item"
+msgstr "Elemento de navegación"
+
+msgid "Never"
+msgstr "Nunca"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Siguiente&nbsp;&raquo;"
+
+msgid "No items to display."
+msgstr "No hay ítems que mostrar."
+
+#, python-format
+msgid "No match returned for the id \"%s\"."
+msgstr "Ninguna coincidencia para el id \"%s\"."
+
+msgid "No members."
+msgstr "Sin miembros."
+
+msgid "None available."
+msgstr "Ninguno disponible."
+
+msgid "Not a valid IP protocol number"
+msgstr "Número de protocolo IP no válido"
+
+msgid "Not a valid port number"
+msgstr "Número de puerto no válido"
+
+msgid "One colon allowed in port range"
+msgstr "Un punto permitido en el rango de puerto"
+
+msgid "Other"
+msgstr "Otro"
+
+msgid "Password is not accepted"
+msgstr "La contraseña no se ha aceptado"
+
+msgid "Please log in to continue."
+msgstr "Inicie sesión para continuar."
+
+msgid "Please select a row before taking that action."
+msgstr "Seleccione una fila antes de realizar la acción."
+
+msgid "Port number must be integer"
+msgstr "El número de puerto debe ser un entero"
+
+msgid "Processing..."
+msgstr "Procesando..."
+
+msgid "Save"
+msgstr "Guardar"
+
+#, python-format
+msgid "Select a %s to browse."
+msgstr "Seleccione una %s para navegar."
+
+msgid "Select a period of time to query its usage:"
+msgstr "Seleccione un periodo de tiempo para consultar su uso: "
+
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Vender Mascota"
+msgstr[1] "Vender Mascotas"
+
+msgid "Session timed out."
+msgstr "La sesión ha expirado."
+
+msgid "Sign In"
+msgstr "Iniciar sesión"
+
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Mascota Vendida"
+msgstr[1] "Mascotas Vendidas"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Success: "
+msgstr "Correcto:"
+
+msgid "Summary"
+msgstr "Resumen"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "El atributo %(attr)s no existe en %(obj)s."
+
+msgid "The date should be in YYYY-mm-dd format."
+msgstr "La fecha debe estar en formato AAAA-MM-DD."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "La cadena sólo puede incluir caracteres imprimibles ASCII."
+
+msgid "This Period's GB-Hours:"
+msgstr "Este periodo en horas GB:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "Horas-RAM de este periodo:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "Este periodo en horas VCPU:"
+
+msgid "This action cannot be undone."
+msgstr "No se puede deshacer esta acción."
+
+#, python-format
+msgid "Unable to %(action)s: %(objs)s"
+msgstr "No ha sido posible %(action)s: %(objs)s"
+
+msgid "Unauthorized. Please try logging in again."
+msgstr "No autorizado. Inicie sesión de nuevo."
+
+#, python-format
+msgid "Unauthorized: %s"
+msgstr "No autorizado: %s"
+
+msgid "Update"
+msgstr "Actualizar"
+
+msgid "Updated"
+msgstr "Actualizada"
+
+msgid "Usage Summary"
+msgstr "Resumen del uso"
+
+msgid "Warning: "
+msgstr "Advertencia:"
+
+#, python-format
+msgid "You are not allowed to %(action)s: %(objs)s"
+msgstr "No le está permitido %(action)s: %(objs)s"
+
+#, python-format
+msgid "You are not authorized to access %s"
+msgstr "No está autorizado para acceder a %s"
+
+msgid "You do not have permission to access the resource:"
+msgstr "No tiene permisos para acceder al recurso:"

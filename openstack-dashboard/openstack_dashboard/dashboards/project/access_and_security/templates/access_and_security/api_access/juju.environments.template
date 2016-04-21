@@ -1,0 +1,22 @@
+# To use Juju with your Openstack cloud:
+#    1. Run: apt-get install juju
+#    2. Copy this file to $HOME/.juju/environments.yaml
+#    3. Complete any empty fields
+#    4. Run 'juju bootstrap' and deploy services!
+#
+# To find out more about juju visit http://juju.ubuntu.com
+environments:
+  openstack:
+    type: openstack
+    auth-url: {{ auth_url }}
+    auth-mode: userpass
+    use-floating-ip: true
+    # Please provide the UUID of the network to use if you have
+    # more than one network configured for your tenant.
+    # network:
+    region: {{ region }}
+    username: {{ user }}
+    # Please provide the password you use to access the
+    # OpenStack cloud.
+    password:
+    tenant-name: {{ tenant_name }}

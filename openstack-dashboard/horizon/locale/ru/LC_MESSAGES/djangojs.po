@@ -1,0 +1,401 @@
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+#
+# Translators:
+# Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2015
+# Alexander Vasiliev <avasiliev@asdco.ru>, 2015
+# Andreas Jaeger <jaegerandi@gmail.com>, 2015
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
+# Yury Sakarinen, 2014
+# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-09-26 08:59+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-23 08:11+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
+"ru/)\n"
+"Generated-By: Babel 2.0\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Zanata 3.7.1\n"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s ГБ"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s кБ"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s МБ"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s ТБ"
+
+#, python-format
+msgid "%s bytes"
+msgstr "%s байт"
+
+msgid "-"
+msgstr "-"
+
+msgid "Active"
+msgstr "Активный"
+
+msgid "Add Interface"
+msgstr "Добавить Интерфейс"
+
+msgid "Added"
+msgstr "Добавлено"
+
+msgid "Allocated"
+msgstr "Выделенный"
+
+msgid "An error occurred while updating."
+msgstr "Во время обновления произошла ошибка."
+
+msgid "An error occurred. Please try again later."
+msgstr "Произошла ошибка. Повторите попытку."
+
+msgid "Available"
+msgstr "Доступно"
+
+msgid "Available Metadata"
+msgstr "Доступные метаданные"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Click here for filters."
+msgstr "Нажмите здесь для фильтров."
+
+msgid "Click here to expand the row and view the errors."
+msgstr "Нажмите для показа ошибок."
+
+msgid "Click to see more details"
+msgstr "Нажмите для подробностей"
+
+msgid "Click to show or hide"
+msgstr "Нажмите для показа или скрытия"
+
+msgid "Closed"
+msgstr "Закрыт"
+
+msgid "Closing"
+msgstr "Закрытие"
+
+#, python-format
+msgid "Confirm %s"
+msgstr "Подтвердите %s"
+
+msgid "Connecting"
+msgstr "Подключение"
+
+msgid "Could not decrypt the password"
+msgstr "Не удалось расшифровать пароль"
+
+msgid "Could not read the file"
+msgstr "Не удалось прочитать файл"
+
+msgid "Create Subnet"
+msgstr "Создать подсеть"
+
+msgid "Current Usage"
+msgstr "Использовано на текущий момент"
+
+msgid "Custom"
+msgstr "Выборочный"
+
+msgid "Danger"
+msgstr "Опасность"
+
+msgid "Danger: "
+msgstr "Опасность:"
+
+msgid "Decimal required"
+msgstr "Требуется десятичное число"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Delete Interface"
+msgstr "Удалить интерфейс"
+
+msgid "Delete Network"
+msgstr "Удалить сеть"
+
+msgid "Delete Router"
+msgstr "Удалить маршрутизатор"
+
+msgid "Delete Subnet"
+msgstr "Удалить подсеть"
+
+msgid "Detail Information"
+msgstr "Подробная информация"
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "Отображение %(count)s из %(total)s элементов"
+
+#, python-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "Отображено %s значение"
+msgstr[1] "Отображено %s значений"
+msgstr[2] "Отображено %s значений"
+
+msgid "Duplicate keys are not allowed"
+msgstr "Повторяющиеся ключи не допускаются"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Error: "
+msgstr "Ошибка:"
+
+msgid "Existing Metadata"
+msgstr "Имеющиеся метаданные"
+
+msgid "Expand to see allocated items"
+msgstr "Показать выделенные элементы"
+
+msgid "Expand to see available items"
+msgstr "Показать все доступные элементы"
+
+msgid "Filter"
+msgstr "Фильтр"
+
+msgid "Finish"
+msgstr "Закончить"
+
+msgid "Flavor"
+msgstr "Тип инстанса"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP Addresses"
+msgstr "IP адрес"
+
+msgid "In current results"
+msgstr "В текущих результатах"
+
+msgid "Info"
+msgstr "Информация"
+
+msgid "Integer required"
+msgstr "Требуется целое число"
+
+msgid "Interfaces"
+msgstr "Интерфейсы"
+
+msgid "Loading"
+msgstr "Загрузка"
+
+msgid "Max"
+msgstr "Макс."
+
+msgid "Max length"
+msgstr "Макс. длина"
+
+msgid "Min"
+msgstr "Мин."
+
+msgid "Min length"
+msgstr "Мин. длина"
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Next"
+msgstr "Вперёд"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "No available items"
+msgstr "Нет доступных элементов"
+
+msgid "No available metadata"
+msgstr "Метаданные недоступны"
+
+msgid "No data available."
+msgstr "Нет данных."
+
+msgid "No description available."
+msgstr "Описание недоступно."
+
+msgid "No existing metadata"
+msgstr "Нет метаданных"
+
+msgid "No items to display."
+msgstr "Нет элементов для отображения."
+
+msgid "No roles"
+msgstr "Нет ролей"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Not authorized to do this operation."
+msgstr "Нет прав для выполнения."
+
+msgid "Notice: "
+msgstr "Примечание:"
+
+msgid "Open"
+msgstr "Открыт"
+
+msgid "Open Console"
+msgstr "Открыть консоль"
+
+msgid "Passwords do not match."
+msgstr "Пароли не совпадают."
+
+msgid "Pattern mismatch"
+msgstr "Несоответствие шаблону"
+
+msgid "Please confirm your selection. "
+msgstr "Подтвердите свой выбор."
+
+msgid "Prompt"
+msgstr "Подсказка"
+
+msgid "Re-order items using drag and drop"
+msgstr "Переопределите элементы перемещением"
+
+msgid "Remaining"
+msgstr "Свободно"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Required"
+msgstr "Требуется"
+
+msgid "Roles"
+msgstr "Роли"
+
+msgid "STATUS"
+msgstr "СОСТОЯНИЕ"
+
+msgid "Select an item from Available items below"
+msgstr "Выберите элемент из доступных элементов ниже"
+
+msgid "Select one"
+msgstr "Выберите один"
+
+msgid "Server Name"
+msgstr "Имя сервера"
+
+msgid "Shutdown"
+msgstr "Выключение"
+
+msgid "Status"
+msgstr "Статус"
+
+#, python-format
+msgid "Status: %s"
+msgstr "Статус: %s"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "Subnets"
+msgstr "Подсети"
+
+msgid "Success"
+msgstr "Успешно"
+
+msgid "Success: "
+msgstr "Успешно:"
+
+msgid "Terminate Instance"
+msgstr "Удалить инстанс"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr ""
+"Действие не может быть выполнено. Эта строка содержит ошибки или "
+"недостаточную информацию.  "
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "Обнаружена проблема при соединении с сервером. Повторите попытку."
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "При отправке формы произошла ошибка. Повторите попытку."
+
+msgid "Total"
+msgstr "Всего"
+
+msgid "View Details"
+msgstr "Просмотреть детали"
+
+msgid "View Instance Details"
+msgstr "Посмотреть информацию об инстансе."
+
+msgid "View Router Details"
+msgstr "Посмотреть информацию о маршрутизаторе"
+
+msgid "Warning"
+msgstr "Предупреждение"
+
+msgid "Warning: "
+msgstr "Внимание:"
+
+msgid "Working"
+msgstr "Обработка"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left columns there are metadata definitions from "
+"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"Вы можете указать метаданные ресурса перемещением элементов из левого "
+"столбца в правый. В левом столбце имеются определения метаданных из каталога "
+"метаданных Glance. Используйте опцию \"Другой\" для добавления выбранных "
+"вами ключей."
+
+#, python-format
+msgid "You have selected %s. "
+msgstr "Выбрано %s."
+
+msgid "description"
+msgstr "описание"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+msgid "no quota"
+msgstr "нет квоты"
+
+msgid "pool default"
+msgstr "пул по умолчанию"

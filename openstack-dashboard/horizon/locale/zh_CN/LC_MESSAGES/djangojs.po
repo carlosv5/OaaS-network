@@ -1,0 +1,381 @@
+# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-09-26 08:59+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-24 08:01+0000\n"
+"Last-Translator: Daisy <guoyingc@cn.ibm.com>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh-CN\n"
+"X-Generator: Zanata 3.7.1\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#, python-format
+msgid "%s bytes"
+msgstr "%s 字节"
+
+msgid "-"
+msgstr "-"
+
+msgid "Active"
+msgstr "运行中"
+
+msgid "Add Interface"
+msgstr "增加接口"
+
+msgid "Added"
+msgstr "已添加"
+
+msgid "Allocated"
+msgstr "已分配"
+
+msgid "An error occurred while updating."
+msgstr "更新时发生错误。"
+
+msgid "An error occurred. Please try again later."
+msgstr "发生错误。请稍后重试。"
+
+msgid "Available"
+msgstr "可用配额"
+
+msgid "Available Metadata"
+msgstr "可用的元数据"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Click here for filters."
+msgstr "点击这里过滤"
+
+msgid "Click here to expand the row and view the errors."
+msgstr "点击此处展开,并可浏览错误。"
+
+msgid "Click to see more details"
+msgstr "点击查看更多细节"
+
+msgid "Click to show or hide"
+msgstr "点击此处展现或隐藏"
+
+msgid "Closed"
+msgstr "已关闭"
+
+msgid "Closing"
+msgstr "关闭中"
+
+#, python-format
+msgid "Confirm %s"
+msgstr "确认 %s"
+
+msgid "Connecting"
+msgstr "连接中"
+
+msgid "Could not decrypt the password"
+msgstr "不能解密密码"
+
+msgid "Could not read the file"
+msgstr "不能读取文件"
+
+msgid "Create Subnet"
+msgstr "创建子网"
+
+msgid "Current Usage"
+msgstr "当前使用量"
+
+msgid "Custom"
+msgstr "定制"
+
+msgid "Danger"
+msgstr "危险"
+
+msgid "Danger: "
+msgstr "危险："
+
+msgid "Decimal required"
+msgstr "必须是小数"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Delete Interface"
+msgstr "删除接口"
+
+msgid "Delete Network"
+msgstr "删除网络"
+
+msgid "Delete Router"
+msgstr "删除路由"
+
+msgid "Delete Subnet"
+msgstr "删除子网"
+
+msgid "Detail Information"
+msgstr "详细信息"
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr " 正在显示%(total)s项中的%(count)s"
+
+#, python-format
+msgid "Displaying %s item"
+msgid_plural "Displaying %s items"
+msgstr[0] "正在显示 %s 项"
+
+msgid "Duplicate keys are not allowed"
+msgstr "复制密钥是不允许的"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Error: "
+msgstr "错误："
+
+msgid "Existing Metadata"
+msgstr "已存在的元数据"
+
+msgid "Expand to see allocated items"
+msgstr "展开可见已分配项"
+
+msgid "Expand to see available items"
+msgstr "展开可见可选项"
+
+msgid "Filter"
+msgstr "筛选"
+
+msgid "Finish"
+msgstr "结束"
+
+msgid "Flavor"
+msgstr "云主机类型"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP Addresses"
+msgstr "IP地址"
+
+msgid "In current results"
+msgstr "当前的结果中"
+
+msgid "Info"
+msgstr "信息"
+
+msgid "Integer required"
+msgstr "必须是整数"
+
+msgid "Interfaces"
+msgstr "接口"
+
+msgid "Loading"
+msgstr "加载中"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "Max length"
+msgstr "最大长度"
+
+msgid "Min"
+msgstr "最小"
+
+msgid "Min length"
+msgstr "最小长度"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Next"
+msgstr "下一步"
+
+msgid "No"
+msgstr "不"
+
+msgid "No available items"
+msgstr "没有可选项"
+
+msgid "No available metadata"
+msgstr "没有可用的元数据"
+
+msgid "No data available."
+msgstr "没有可用数据"
+
+msgid "No description available."
+msgstr "没有可用的描述。"
+
+msgid "No existing metadata"
+msgstr "不存在的元数据"
+
+msgid "No items to display."
+msgstr "没有条目显示。"
+
+msgid "No roles"
+msgstr "不存在任何角色"
+
+msgid "None"
+msgstr "无"
+
+msgid "Not authorized to do this operation."
+msgstr "未授权不能进行此操作。"
+
+msgid "Notice: "
+msgstr "注意："
+
+msgid "Open"
+msgstr "打开"
+
+msgid "Open Console"
+msgstr "打开控制台"
+
+msgid "Passwords do not match."
+msgstr "密码不匹配。"
+
+msgid "Pattern mismatch"
+msgstr "模式不匹配"
+
+msgid "Please confirm your selection. "
+msgstr "请确认您的选择。"
+
+msgid "Prompt"
+msgstr "提示"
+
+msgid "Re-order items using drag and drop"
+msgstr "使用拖放重新排序"
+
+msgid "Remaining"
+msgstr "剩余量"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Required"
+msgstr "必须"
+
+msgid "Roles"
+msgstr "角色"
+
+msgid "STATUS"
+msgstr "状态"
+
+msgid "Select an item from Available items below"
+msgstr "从以下可选项中选择一项"
+
+msgid "Select one"
+msgstr "选择一个"
+
+msgid "Server Name"
+msgstr "服务器名"
+
+msgid "Shutdown"
+msgstr "关闭"
+
+msgid "Status"
+msgstr "状态"
+
+#, python-format
+msgid "Status: %s"
+msgstr "状态: %s"
+
+msgid "Submit"
+msgstr "提交"
+
+msgid "Subnets"
+msgstr "子网"
+
+msgid "Success"
+msgstr "成功"
+
+msgid "Success: "
+msgstr "成功："
+
+msgid "Terminate Instance"
+msgstr "终止实例"
+
+msgid "Text"
+msgstr "文本"
+
+msgid ""
+"The action cannot be performed. The contents of this row have errors or are "
+"missing information."
+msgstr "不能执行该操作。该列的内容有错或是缺少信息。"
+
+msgid "There was a problem communicating with the server, please try again."
+msgstr "与服务器通信出现问题，请再试一次。"
+
+msgid "There was an error submitting the form. Please try again."
+msgstr "在提交表单的时候出现错误，请再次尝试。"
+
+msgid "Total"
+msgstr "总共"
+
+msgid "View Details"
+msgstr "查看详情"
+
+msgid "View Instance Details"
+msgstr "查看实例详情"
+
+msgid "View Router Details"
+msgstr "查看路由详情"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Warning: "
+msgstr "警告："
+
+msgid "Working"
+msgstr "进行中"
+
+msgid "Yes"
+msgstr "是"
+
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left columns there are metadata definitions from "
+"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"你可以通过从左边栏目目录选择到右边栏目来指定资源的元数据。在左边栏目是按照"
+"glance 元数据目录来定义的元数据。使用\"其他\"选项来增加元数据。"
+
+#, python-format
+msgid "You have selected %s. "
+msgstr "你已经选择了 %s 。 "
+
+msgid "description"
+msgstr "描述"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+msgid "no quota"
+msgstr "没有配额"
+
+msgid "pool default"
+msgstr "默认资源池"
