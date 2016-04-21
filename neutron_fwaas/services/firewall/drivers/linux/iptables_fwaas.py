@@ -216,6 +216,11 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
             else:
                 ichain_name = self._get_chain_name(fwid, ver, INGRESS_DIRECTION)
                 ochain_name = self._get_chain_name(fwid, ver, EGRESS_DIRECTION)
+#OaaS
+            if  rule.get('action') == 'optimize':
+                table.add_rule(ichain_name, iptbl_rule,top=True)
+                table.add_rule(ochain_name, iptbl_rule,top=True)
+            else:
                 table.add_rule(ichain_name, iptbl_rule)
                 table.add_rule(ochain_name, iptbl_rule)
 
