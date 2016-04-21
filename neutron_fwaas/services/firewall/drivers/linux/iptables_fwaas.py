@@ -209,6 +209,9 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
             else:
                 ver = IPV6
                 table = ipt_mgr.ipv6['filter']
+	    ichain_name = self._get_chain_name(fwid, ver, INGRESS_DIRECTION)
+            ochain_name = self._get_chain_name(fwid, ver, EGRESS_DIRECTION)
+
 #OaaS
             if  rule.get('action') == 'optimize':
                 table.add_rule(ichain_name, iptbl_rule,top=True)
