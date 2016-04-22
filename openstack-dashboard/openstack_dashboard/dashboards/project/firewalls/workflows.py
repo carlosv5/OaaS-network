@@ -303,9 +303,11 @@ class AddFirewallAction(workflows.Action):
         self.fields['firewall_policy_id'].choices = firewall_policy_id_choices
 
     class Meta(object):
-        name = _("AddFirewall")
+#OaaS
+        name = _("AddOptimizer")
         permissions = ('openstack.services.network',)
-        help_text = _("Create a firewall based on a policy.\n\n"
+        help_text = _("Create an optimizer  based on a policy.\n\n"
+                      "The optimizer can also works as a firewall.\n"
                       "A policy must be selected. "
                       "Other fields are optional.")
 
@@ -323,10 +325,11 @@ class AddFirewallStep(workflows.Step):
 
 class AddFirewall(workflows.Workflow):
     slug = "addfirewall"
-    name = _("Add Firewall")
+#OaaS
+    name = _("Add Optimizer")
     finalize_button_name = _("Add")
-    success_message = _('Added Firewall "%s".')
-    failure_message = _('Unable to add Firewall "%s".')
+    success_message = _('Added Optimizer "%s".')
+    failure_message = _('Unable to add Optimizer "%s".')
     success_url = "horizon:project:firewalls:index"
     # fwaas is designed to support a wide range of vendor
     # firewalls. Considering the multitude of vendor firewall
