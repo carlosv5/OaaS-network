@@ -22,7 +22,8 @@ LOG = logging.getLogger(__name__)
 
 
 class Firewall(horizon.Panel):
-    name = _("Firewalls")
+#OaaS
+    name = _("Optimizers")
     slug = "firewalls"
     permissions = ('openstack.services.network',)
 

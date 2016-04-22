@@ -28,7 +28,8 @@ RulesTable = tables.RulesTable
 
 class RulesTab(tabs.TableTab):
     table_classes = (RulesTable,)
-    name = _("Firewall Rules")
+#OaaS
+    name = _("Optimizer Rules")
     slug = "rules"
     template_name = "horizon/common/_detail_table.html"
 
@@ -47,7 +48,8 @@ class RulesTab(tabs.TableTab):
 
 class PoliciesTab(tabs.TableTab):
     table_classes = (PoliciesTable,)
-    name = _("Firewall Policies")
+#OaaS
+    name = _("Optimizer Policies")
     slug = "policies"
     template_name = "horizon/common/_detail_table.html"
 
@@ -66,7 +68,8 @@ class PoliciesTab(tabs.TableTab):
 
 class FirewallsTab(tabs.TableTab):
     table_classes = (FirewallsTable,)
-    name = _("Firewalls")
+#OaaS
+    name = _("Optimizers")
     slug = "firewalls"
     template_name = "horizon/common/_detail_table.html"
 
@@ -94,7 +97,8 @@ class FirewallsTab(tabs.TableTab):
 
 
 class RuleDetailsTab(tabs.Tab):
-    name = _("Firewall Rule Details")
+#OaaS
+    name = _("Optimizer Rule Details")
     slug = "ruledetails"
     template_name = "project/firewalls/_rule_details.html"
     failure_url = reverse_lazy('horizon:project:firewalls:index')
@@ -111,7 +115,8 @@ class RuleDetailsTab(tabs.Tab):
 
 
 class PolicyDetailsTab(tabs.Tab):
-    name = _("Firewall Policy Details")
+#OaaS
+    name = _("Optimizer Policy Details")
     slug = "policydetails"
     template_name = "project/firewalls/_policy_details.html"
     failure_url = reverse_lazy('horizon:project:firewalls:index')
@@ -128,7 +133,8 @@ class PolicyDetailsTab(tabs.Tab):
 
 
 class FirewallDetailsTab(tabs.Tab):
-    name = _("Firewall Details")
+#OaaS
+    name = _("Optimizer Details")
     slug = "firewalldetails"
     template_name = "project/firewalls/_firewall_details.html"
     failure_url = reverse_lazy('horizon:project:firewalls:index')

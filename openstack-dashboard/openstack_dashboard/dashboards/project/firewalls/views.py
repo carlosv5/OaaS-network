@@ -51,7 +51,7 @@ AddRule = fw_workflows.AddRule
 class IndexView(tabs.TabbedTableView):
     tab_group_class = FirewallTabs
     template_name = 'project/firewalls/details_tabs.html'
-    page_title = _("Firewalls")
+    page_title = _("SoloWan")
 
 
 class AddRuleView(workflows.WorkflowView):
@@ -69,7 +69,7 @@ class AddPolicyView(workflows.WorkflowView):
 class AddFirewallView(workflows.WorkflowView):
     workflow_class = AddFirewall
     template_name = "project/firewalls/addfirewall.html"
-    page_title = _("Add New Firewall")
+    page_title = _("Add New Optimizer")
 
     def get_workflow(self):
         if api.neutron.is_extension_supported(self.request,
@@ -85,17 +85,20 @@ class FireWallDetailTabs(tabs.TabView):
 
 class RuleDetailsView(FireWallDetailTabs):
     tab_group_class = (RuleDetailsTabs)
-    page_title = _("Firewall Rule Details")
+#OaaS
+    page_title = _("Optimizer Rule Details")
 
 
 class PolicyDetailsView(FireWallDetailTabs):
     tab_group_class = (PolicyDetailsTabs)
-    page_title = _("Firewall Policy Details")
+#OaaS
+    page_title = _("Optimizer Policy Details")
 
 
 class FirewallDetailsView(FireWallDetailTabs):
     tab_group_class = (FirewallDetailsTabs)
-    page_title = _("Firewall Details")
+#OaaS
+    page_title = _("Optimizer Details")
 
 
 class UpdateRuleView(forms.ModalFormView):
@@ -207,7 +210,8 @@ class UpdateFirewallView(forms.ModalFormView):
             return firewall
         except Exception:
             redirect = self.success_url
-            msg = _('Unable to retrieve firewall details.')
+#OaaS
+            msg = _('Unable to retrieve optimizer details.')
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):
@@ -321,7 +325,8 @@ class RouterCommonView(forms.ModalFormView):
             return firewall
         except Exception:
             redirect = self.success_url
-            msg = _('Unable to retrieve firewall details.')
+#OaaS
+            msg = _('Unable to retrieve optimizer details.')
             exceptions.handle(self.request, msg, redirect=redirect)
 
     def get_initial(self):

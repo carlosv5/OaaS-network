@@ -48,7 +48,8 @@ class AddPolicyLink(tables.LinkAction):
 
 class AddFirewallLink(tables.LinkAction):
     name = "addfirewall"
-    verbose_name = _("Create Firewall")
+#OaaS
+    verbose_name = _("Create Optimizer")
     url = "horizon:project:firewalls:addfirewall"
     classes = ("ajax-modal",)
     icon = "plus"
@@ -283,9 +284,12 @@ def get_policy_link(datum):
 
 
 class RulesTable(tables.DataTable):
+#OaaS
     ACTION_DISPLAY_CHOICES = (
         ("Allow", pgettext_lazy("Action Name of a Firewall Rule", u"ALLOW")),
         ("Deny", pgettext_lazy("Action Name of a Firewall Rule", u"DENY")),
+        ("Reject", pgettext_lazy("Action Name of a Firewall Rule", u"REJECT")),
+        ("Optimize", pgettext_lazy("Action Name of a Firewall Rule", u"OPTIMIZE")),
     )
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
