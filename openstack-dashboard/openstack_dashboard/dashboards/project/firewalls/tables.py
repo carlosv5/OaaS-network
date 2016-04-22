@@ -123,8 +123,9 @@ class DeleteFirewallLink(policy.PolicyTargetMixin,
     @staticmethod
     def action_present(count):
         return ungettext_lazy(
-            u"Delete Firewall",
-            u"Delete Firewalls",
+#OaaS
+            u"Delete Optimizer",
+            u"Delete Optimizers",
             count
         )
 
@@ -169,7 +170,8 @@ class UpdatePolicyLink(policy.PolicyTargetMixin, tables.LinkAction):
 
 class UpdateFirewallLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "updatefirewall"
-    verbose_name = _("Edit Firewall")
+#OaaS
+    verbose_name = _("Edit Optimizer")
     classes = ("ajax-modal", "btn-update",)
     policy_rules = (("network", "update_firewall"),)
 

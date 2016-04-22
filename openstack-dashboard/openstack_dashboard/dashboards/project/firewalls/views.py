@@ -185,7 +185,8 @@ class UpdateFirewallView(forms.ModalFormView):
     form_id = "update_firewall_form"
     template_name = "project/firewalls/updatefirewall.html"
     context_object_name = 'firewall'
-    modal_header = _("Edit Firewall")
+#OaaS
+    modal_header = _("Edit Optimizer")
     submit_label = _("Save Changes")
     submit_url = "horizon:project:firewalls:updatefirewall"
     success_url = reverse_lazy("horizon:project:firewalls:index")
