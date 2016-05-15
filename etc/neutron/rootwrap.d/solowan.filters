@@ -12,4 +12,9 @@
 #solowan
 solowan : CommandFilter, /etc/init.d/solowan , root
 
-#USE: sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan start 
+#USE:  
+#subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan start",shell=True)
+#from neutron.agent.linux import utils as linux_utils
+#args = ['solowan', 'start']
+#linux_utils.execute(args, run_as_root=True)
+
