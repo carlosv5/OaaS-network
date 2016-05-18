@@ -54,9 +54,6 @@ from neutronclient.neutron.v2_0 import floatingip
 from neutronclient.neutron.v2_0.fw import firewall
 from neutronclient.neutron.v2_0.fw import firewallpolicy
 from neutronclient.neutron.v2_0.fw import firewallrule
-#OaaS
-from neutronclient.neutron.v2_0.fw import firewallsolowan
-
 from neutronclient.neutron.v2_0.lb import healthmonitor as lb_healthmonitor
 from neutronclient.neutron.v2_0.lb import member as lb_member
 from neutronclient.neutron.v2_0.lb import pool as lb_pool
@@ -308,13 +305,6 @@ COMMAND_V2 = {
     'firewall-create': firewall.CreateFirewall,
     'firewall-update': firewall.UpdateFirewall,
     'firewall-delete': firewall.DeleteFirewall,
-#OaaS
-    'firewall-solowan-create': firewallsolowan.CreateFirewallSolowan,
-    'firewall-solowan-update': firewallsolowan.UpdateFirewallSolowan,
-    'firewall-solowan-delete': firewallsolowan.DeleteFirewallSolowan,
-    'firewall-solowan-list': firewallsolowan.ListFirewallSolowan,
-    'firewall-solowan-show': firewallsolowan.ShowFirewallSolowan,
-
     'cisco-credential-list': credential.ListCredential,
     'cisco-credential-show': credential.ShowCredential,
     'cisco-credential-create': credential.CreateCredential,

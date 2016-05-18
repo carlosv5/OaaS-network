@@ -425,10 +425,6 @@ class Client(ClientBase):
     firewall_policy_remove_path = "/fw/firewall_policies/%s/remove_rule"
     firewalls_path = "/fw/firewalls"
     firewall_path = "/fw/firewalls/%s"
-#OaaS
-    firewall_solowan_path = "/fw/firewall_solowan"
-    firewall_solowans_path = "/fw/firewall_solowans/%s"
-
     net_partitions_path = "/net-partitions"
     net_partition_path = "/net-partitions/%s"
     rbac_policies_path = "/rbac-policies"
@@ -460,9 +456,6 @@ class Client(ClientBase):
                      'firewall_rules': 'firewall_rule',
                      'firewall_policies': 'firewall_policy',
                      'firewalls': 'firewall',
-#OaaS
-                     'firewall_solowans' : 'firewall_solowan',
-
                      'metering_labels': 'metering_label',
                      'metering_label_rules': 'metering_label_rule',
                      'net_partitions': 'net_partition',
@@ -1442,23 +1435,6 @@ class Client(ClientBase):
     def delete_firewall(self, firewall):
         """Deletes the specified firewall."""
         return self.delete(self.firewall_path % (firewall))
-
-#OaaS
-    @APIParamsCall
-    def create_firewall_solowan(self, body=None):
-        """Starts solowan"""
-        return self.post(self.solowan_path, body=body)
-
-    @APIParamsCall
-    def update_firewall_solowan(self, firewall, body=None):
-        """Restarts solowan"""
-        return self.put(self.solowan_path % (solowan), body=body)
-
-    @APIParamsCall
-    def delete_firewall_solowan(self, solowan):
-        """Stops solowan"""
-        return self.delete(self.solowan_path % (solowan))
-
 
     @APIParamsCall
     def remove_router_from_l3_agent(self, l3_agent, router_id):
