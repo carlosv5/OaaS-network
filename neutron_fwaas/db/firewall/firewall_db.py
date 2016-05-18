@@ -69,6 +69,8 @@ class Firewall(model_base.BASEV2, models_v2.HasId, models_v2.HasTenant):
     shared = sa.Column(sa.Boolean)
     admin_state_up = sa.Column(sa.Boolean)
     status = sa.Column(sa.String(16))
+#OaaS
+    solowan = sa.Column(sa.Boolean)
     firewall_policy_id = sa.Column(sa.String(36),
                                    sa.ForeignKey('firewall_policies.id'),
                                    nullable=True)
@@ -121,6 +123,8 @@ class Firewall_db_mixin(fw_ext.FirewallPluginBase, base_db.CommonDbMixin):
                'description': fw['description'],
                'shared': fw['shared'],
                'admin_state_up': fw['admin_state_up'],
+#OaaS
+               'solowan': fw['solowan'],
                'status': fw['status'],
                'firewall_policy_id': fw['firewall_policy_id']}
         return self._fields(res, fields)

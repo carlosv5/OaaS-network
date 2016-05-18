@@ -89,6 +89,12 @@ class UpdateFirewall(neutronv20.UpdateCommand):
         parser.add_argument(
             '--policy', metavar='POLICY',
             help=_('Firewall policy name or ID.'))
+        #OaaS
+        parser.add_argument(
+            '--solowan',
+            dest='solowan',
+            metavar="service True| False",
+            help=_("Set the state of solowan's service"))
         router_sg = parser.add_mutually_exclusive_group()
         router_sg.add_argument(
             '--router',
@@ -117,6 +123,9 @@ class UpdateFirewall(neutronv20.UpdateCommand):
                 for r in parsed_args.routers]
         elif parsed_args.no_routers:
             data['router_ids'] = []
+        #OaaS
+        if parsed_args.solowan:
+            data['solowan']= parsed_args.solowan
         return {self.resource: data}
 
 

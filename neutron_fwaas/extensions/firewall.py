@@ -338,6 +338,9 @@ RESOURCE_ATTRIBUTE_MAP = {
                            'is_visible': True},
         'status': {'allow_post': False, 'allow_put': False,
                    'is_visible': True},
+#OaaS
+        'solowan': {'allow_post': False, 'allow_put': True,
+                   'is_visible': True, 'default': False, 'convert_to': attr.convert_to_boolean},
         'shared': {'allow_post': True, 'allow_put': True,
                    'default': False, 'convert_to': attr.convert_to_boolean,
                    'is_visible': False, 'required_by_policy': True,
