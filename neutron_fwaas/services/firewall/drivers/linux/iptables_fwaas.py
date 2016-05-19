@@ -19,6 +19,10 @@ from oslo_log import log as logging
 
 from neutron_fwaas.extensions import firewall as fw_ext
 from neutron_fwaas.services.firewall.drivers import fwaas_base
+#OaaS
+from neutron.agent.linux import utils as linux_utils
+import subprocess
+
 
 LOG = logging.getLogger(__name__)
 FWAAS_DRIVER_NAME = 'Fwaas iptables driver'
@@ -119,6 +123,8 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
         try:
             if firewall['admin_state_up']:
                 self._setup_firewall(agent_mode, apply_list, firewall)
+		#OaaS
+                self.solowan_service(firewall['solowan'])
             else:
                 self.apply_default_policy(agent_mode, apply_list, firewall)
         except (LookupError, RuntimeError):
@@ -324,3 +330,18 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
         if ip_prefix:
             return '-%s %s' % (direction, ip_prefix)
         return ''
+
+
+#OaaS
+    def solowan_service(self,solowan):
+        if solowan == True:
+            #linux_utils.execute no soporta shell=True
+            #args = ['solowan', 'start']
+            #linux_utils.execute(args, run_as_root=True)
+            subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan start",shell=True)
+        if solowan == False:
+            #linux_utils.execute no soporta shell=True
+            #args = ['solowan', 'stop']
+            #linux_utils.execute(args, run_as_root=True)
+            subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan stop",shell=True)
+
