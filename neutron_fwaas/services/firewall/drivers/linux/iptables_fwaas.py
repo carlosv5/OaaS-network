@@ -102,6 +102,10 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
         LOG.debug('Deleting firewall %(fw_id)s for tenant %(tid)s)',
                   {'fw_id': firewall['id'], 'tid': firewall['tenant_id']})
         fwid = firewall['id']
+        #OaaS  
+        firewall['solowan'] = False
+        self.solowan_service(firewall['solowan'])
+
         try:
             for router_info in apply_list:
                 ipt_if_prefix_list = self._get_ipt_mgrs_with_if_prefix(
