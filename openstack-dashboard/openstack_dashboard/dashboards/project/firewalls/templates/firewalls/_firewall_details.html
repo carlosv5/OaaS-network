@@ -21,6 +21,8 @@
       {% url 'horizon:project:firewalls:policydetails' firewall.firewall_policy_id as policy_url %}
       <a href="{{ policy_url }}">{{ firewall.policy.name|default:firewall.policy.id }}</a>
     </dd>
+    <dt>{% trans "SoloWan" %}</dt>
+    <dd>{{ firewall.solowan }}</dd>
 
     <dt>{% trans "Status" %}</dt>
     <dd>{{ firewall.status }}</dd>
