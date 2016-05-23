@@ -384,6 +384,9 @@ class FirewallsTable(tables.DataTable):
                                        verbose_name=_("Policy"))
     router_ids = tables.Column(get_routers_name,
                                verbose_name=_("Associated Routers"))
+#CVG
+    solowan = tables.Column('solowan', verbose_name=_('SoloWan'))
+
     status = tables.Column("status",
                            verbose_name=_("Status"),
                            display_choices=STATUS_DISPLAY_CHOICES)
