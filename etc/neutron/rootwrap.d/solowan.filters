@@ -11,6 +11,8 @@
 
 #solowan
 solowan : CommandFilter, /etc/init.d/solowan , root
+opennopd : CommandFilter, /usr/local/sbin/opennopd, root
+
 
 #USE:  
 #subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan start",shell=True)

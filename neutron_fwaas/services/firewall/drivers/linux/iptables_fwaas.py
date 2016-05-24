@@ -63,6 +63,8 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
     def create_firewall(self, agent_mode, apply_list, firewall):
         LOG.debug('Creating firewall %(fw_id)s for tenant %(tid)s)',
                   {'fw_id': firewall['id'], 'tid': firewall['tenant_id']})
+#OaaS
+        namespace = "qrouter-%s" % str(firewall['add-router-ids']).strip("u['']")
         try:
             if firewall['admin_state_up']:
                 self._setup_firewall(agent_mode, apply_list, firewall)
@@ -102,6 +104,8 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
         LOG.debug('Deleting firewall %(fw_id)s for tenant %(tid)s)',
                   {'fw_id': firewall['id'], 'tid': firewall['tenant_id']})
         fwid = firewall['id']
+#OaaS
+        namespace = "qrouter-%s" % str(firewall['add-router-ids']).strip("u['']")
         #OaaS  
         firewall['solowan'] = False
         self.solowan_service(firewall['solowan'])
@@ -124,6 +128,8 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
     def update_firewall(self, agent_mode, apply_list, firewall):
         LOG.debug('Updating firewall %(fw_id)s for tenant %(tid)s)',
                   {'fw_id': firewall['id'], 'tid': firewall['tenant_id']})
+#OaaS
+        namespace = "qrouter-%s" % str(firewall['add-router-ids']).strip("u['']")
         try:
             if firewall['admin_state_up']:
                 self._setup_firewall(agent_mode, apply_list, firewall)
@@ -343,6 +349,13 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
             #args = ['solowan', 'start']
             #linux_utils.execute(args, run_as_root=True)
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan start",shell=True)
+            #LOG.debug("COMANDO OPENNOP")
+            #subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf LOG4C_RCPATH=/etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/ opennopd -c /etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/opennop.conf -p /var/run/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91.pid", shell= True)
+            #subprocess.call("LOG4C_RCPATH=/etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/", shell= True)
+            #subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf  opennopd -c /etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/opennop.conf -p /var/run/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91.pid", shell= True)
+            #subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf LOG4C_RCPATH=/etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/ opennopd -c /etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/opennop.conf -p /var/run/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91.pid", shell= True)
+
+
         if solowan == False:
             #linux_utils.execute no soporta shell=True
             #args = ['solowan', 'stop']
