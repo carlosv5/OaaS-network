@@ -65,6 +65,7 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
                   {'fw_id': firewall['id'], 'tid': firewall['tenant_id']})
 #OaaS
         namespace = "qrouter-%s" % str(firewall['add-router-ids']).strip("u['']")
+        self.solowan_create_folder(namespace)
         try:
             if firewall['admin_state_up']:
                 self._setup_firewall(agent_mode, apply_list, firewall)
@@ -106,9 +107,7 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
         fwid = firewall['id']
 #OaaS
         namespace = "qrouter-%s" % str(firewall['add-router-ids']).strip("u['']")
-        #OaaS  
-        firewall['solowan'] = False
-        self.solowan_service(firewall['solowan'])
+        self.solowan_delete_folder(firewall['solowan'],namespace)
 
         try:
             for router_info in apply_list:
@@ -343,22 +342,23 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
 
 
 #OaaS
+
+    def solowan_create_folder(self, namespace):
+        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf mkdir /etc/opennop/opennop-%s" %namespace, shell=True)
+        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf cp /etc/opennop/log4crc /etc/opennop/opennop-%s" %namespace, shell=True)
+        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf cp /etc/opennop/opennop.conf /etc/opennop/opennop-%s" %namespace, shell=True)
+
+    def solowan_delete_folder(self,solowan, namespace):
+        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rm /etc/opennop/opennop-%s/log4crc" % namespace, shell=True)
+        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rm /etc/opennop/opennop-%s/opennop.conf" % namespace, shell=True)
+        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rmdir /etc/opennop/opennop-%s" % namespace, shell=True)
+        solowan = False
+        self.solowan_service(solowan ,namespace)
+
     def solowan_service(self,solowan):
         if solowan == True:
-            #linux_utils.execute no soporta shell=True
-            #args = ['solowan', 'start']
-            #linux_utils.execute(args, run_as_root=True)
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan start",shell=True)
-            #LOG.debug("COMANDO OPENNOP")
-            #subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf LOG4C_RCPATH=/etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/ opennopd -c /etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/opennop.conf -p /var/run/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91.pid", shell= True)
-            #subprocess.call("LOG4C_RCPATH=/etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/", shell= True)
-            #subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf  opennopd -c /etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/opennop.conf -p /var/run/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91.pid", shell= True)
-            #subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf LOG4C_RCPATH=/etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/ opennopd -c /etc/opennop/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91/opennop.conf -p /var/run/opennop-qrouter-f3346c68-20b9-430c-84bc-c6bc65fe5a91.pid", shell= True)
-
 
         if solowan == False:
-            #linux_utils.execute no soporta shell=True
-            #args = ['solowan', 'stop']
-            #linux_utils.execute(args, run_as_root=True)
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan stop",shell=True)
 

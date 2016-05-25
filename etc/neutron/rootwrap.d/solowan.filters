@@ -10,8 +10,11 @@
 [Filters]
 
 #solowan
-solowan : CommandFilter, /etc/init.d/solowan , root
-opennopd : CommandFilter, /usr/local/sbin/opennopd, root
+mkdir : PathFilter, /bin/mkdir, root , /etc/opennop
+cp : PathFilter, /bin/cp, root , /etc/opennop , /etc/opennop
+rmdir : PathFilter, /bin/rmdir, root , /etc/opennop
+rm : PathFilter, /bin/rm, root , /etc/opennop
+
 
 
 #USE:  
