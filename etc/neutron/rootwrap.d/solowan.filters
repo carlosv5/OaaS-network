@@ -10,13 +10,14 @@
 [Filters]
 
 #solowan
-solowan : CommandFilter, /etc/init.d/solowan , root
 opennopd : CommandFilter, /usr/local/sbin/opennopd, root
-mkdir : PathFilter, /bin/mkdir, root , /etc/opennop
-cp : PathFilter, /bin/cp, root , /etc/opennop , /etc/opennop
-rmdir : PathFilter, /bin/rmdir, root , /etc/opennop
-#rm : PathFilter, /bin/rm, root , /etc/opennop
-rm : PathFilter, /bin/rm, root , /
+mkdir : RegExpFilter, /bin/mkdir, root , mkdir, /etc/opennop/opennop-qrouter-.*
+cp : RegExpFilter, /bin/cp, root ,cp, /etc/opennop/.* , /etc/opennop/opennop-qrouter-.*
+rmdir : RegExpFilter, /bin/rmdir, root ,rmdir, /etc/opennop/opennop-qrouter-.*
+rmFile : RegExpFilter, /bin/rm, root ,rmFile, /etc/opennop/opennop.*
+rm : RegExpFilter, /bin/rm, root ,rm, /var/run/opennop.*
+sed : PathFilter, /bin/sed, root, -i, pass, /etc/opennop
+kill : RegExpFilter,  /bin/kill, root ,kill,  -9, .*
 
 
 

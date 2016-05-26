@@ -107,7 +107,7 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
                   {'fw_id': firewall['id'], 'tid': firewall['tenant_id']})
         fwid = firewall['id']
 #OaaS
-        namespace = "qrouter-%s" % str(firewall['add-router-ids']).strip("u['']")
+        namespace = "qrouter-%s" % str(firewall['router_ids']).strip("u['']")
         self.solowan_delete_folder(firewall['solowan'],namespace)
 
         try:
@@ -134,7 +134,7 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
             if firewall['admin_state_up']:
                 self._setup_firewall(agent_mode, apply_list, firewall)
 		#OaaS
-                self.solowan_service(firewall['solowan'])
+                self.solowan_service(firewall['solowan'],namespace)
             else:
                 self.apply_default_policy(agent_mode, apply_list, firewall)
         except (LookupError, RuntimeError):
@@ -351,28 +351,22 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
         subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf sed -i 's/solowan.log/solowan-%s.log/' /etc/opennop/opennop-%s/log4crc" %(namespace,namespace), shell=True)
 
     def solowan_delete_folder(self,solowan, namespace):
-        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rm /etc/opennop/opennop-%s/log4crc" % namespace, shell=True)
-        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rm /etc/opennop/opennop-%s/opennop.conf" % namespace, shell=True)
-        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rm /var/run/opennop-%s" % namespace, shell=True)
+        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rmFile /etc/opennop/opennop-%s/log4crc" % namespace, shell=True)
+        subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rmFile /etc/opennop/opennop-%s/opennop.conf" % namespace, shell=True)
         subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rmdir /etc/opennop/opennop-%s" % namespace, shell=True)
-        solowan = False
-        self.solowan_service(solowan ,namespace)
+        if solowan == True:
+            solowan = False
+            self.solowan_service(solowan ,namespace)
 
-    def solowan_service(self,solowan):
+    def solowan_service(self,solowan, namespace):
         if solowan == True and  not os.path.isfile('/var/run/opennop-%s.pid' % namespace):
-            #subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan start",shell=True)
             cmd = "cd /etc/opennop/opennop-%s; sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf opennopd -c /etc/opennop/opennop-%s/opennop.conf -p /var/run/opennop-%s.pid" % (namespace,namespace, namespace)
             subprocess.call(cmd ,shell=True)
 
-        LOG.debug("PATH2")
-        LOG.debug(os.path.isfile('/var/run/opennop-%s.pid' % namespace))
         if solowan == False and os.path.isfile('/var/run/opennop-%s.pid' % namespace):
-            LOG.debug("ENTRA")
             infile = open('/var/run/opennop-%s.pid' % namespace, 'r')
             PID = infile.readline()
-            LOG.debug("PID IS: %s" % PID)
             infile.close()
-            subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rm /var/run/opennopd-%s.pid" % namespace,shell=True)
-            #import signal
-            #os.kill(int(PID), signal.SIGTERM)
+            subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rm /var/run/opennop-%s.pid" % namespace,shell=True)
+            subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf kill -9 %s" % PID, shell=True)
 
