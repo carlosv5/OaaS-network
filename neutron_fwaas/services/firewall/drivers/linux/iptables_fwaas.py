@@ -360,8 +360,9 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
 
     def solowan_service(self,solowan, namespace):
         if solowan == True and  not os.path.isfile('/var/run/opennop-%s.pid' % namespace):
-            cmd = "cd /etc/opennop/opennop-%s; sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf opennopd -c /etc/opennop/opennop-%s/opennop.conf -p /var/run/opennop-%s.pid" % (namespace,namespace, namespace)
-            subprocess.call(cmd ,shell=True)
+            cmd = "LOG4C_RCPATH=/etc/opennop/opennop-%s ip netns exec %s  opennopd -c /etc/opennop/opennop-%s/opennop.conf -p /var/run/opennop-%s.pid" % (namespace,namespace, namespace,namespace )
+            args = cmd.split()
+            linux_utils.execute(args, run_as_root=True)
 
         if solowan == False and os.path.isfile('/var/run/opennop-%s.pid' % namespace):
             infile = open('/var/run/opennop-%s.pid' % namespace, 'r')

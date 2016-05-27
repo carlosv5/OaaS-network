@@ -18,13 +18,17 @@ rmFile : RegExpFilter, /bin/rm, root ,rmFile, /etc/opennop/opennop.*
 rm : RegExpFilter, /bin/rm, root ,rm, /var/run/opennop.*
 sed : PathFilter, /bin/sed, root, -i, pass, /etc/opennop
 kill : RegExpFilter,  /bin/kill, root ,kill,  -9, .*
+#envOpennop: EnvFilter, env, root, LOG4C_RCPATH=, opennopd
+envnetns: EnvFilter, env, root, LOG4C_RCPATH=, ip, netns,exec, qrouter.*
+
 
 
 
 
 #USE:  
-#subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf solowan start",shell=True)
+#subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf command",shell=True)
+
 #from neutron.agent.linux import utils as linux_utils
-#args = ['solowan', 'start']
+#args = ['command', 'options']
 #linux_utils.execute(args, run_as_root=True)
 
