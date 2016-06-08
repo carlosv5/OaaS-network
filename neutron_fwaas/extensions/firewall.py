@@ -341,6 +341,11 @@ RESOURCE_ATTRIBUTE_MAP = {
 #OaaS
         'solowan': {'allow_post': False, 'allow_put': True,
                    'is_visible': True, 'default': False, 'convert_to': attr.convert_to_boolean},
+        'local_id': {'allow_post': False, 'allow_put': True,
+                                   'validate': {'type:ip_or_subnet_or_none':
+                                                None},
+                                   'is_visible': True, 'default': None},
+
         'shared': {'allow_post': True, 'allow_put': True,
                    'default': False, 'convert_to': attr.convert_to_boolean,
                    'is_visible': False, 'required_by_policy': True,

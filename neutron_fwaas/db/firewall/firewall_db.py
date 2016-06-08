@@ -71,6 +71,7 @@ class Firewall(model_base.BASEV2, models_v2.HasId, models_v2.HasTenant):
     status = sa.Column(sa.String(16))
 #OaaS
     solowan = sa.Column(sa.Boolean)
+    local_id = sa.Column(sa.String(20))
     firewall_policy_id = sa.Column(sa.String(36),
                                    sa.ForeignKey('firewall_policies.id'),
                                    nullable=True)
@@ -125,6 +126,8 @@ class Firewall_db_mixin(fw_ext.FirewallPluginBase, base_db.CommonDbMixin):
                'admin_state_up': fw['admin_state_up'],
 #OaaS
                'solowan': fw['solowan'],
+               'local_id': fw['local_id'],
+
                'status': fw['status'],
                'firewall_policy_id': fw['firewall_policy_id']}
         return self._fields(res, fields)

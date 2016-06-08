@@ -134,6 +134,10 @@ class UpdateFirewall(forms.SelfHandlingForm):
     solowan = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
                                        label=_("SoloWan service"))
+    local_id = forms.CharField(max_length=20,
+                           label=_("local_id"),
+                           required=True)
+
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
                                        label=_("Admin State"))

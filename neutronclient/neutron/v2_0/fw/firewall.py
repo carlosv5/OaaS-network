@@ -95,6 +95,12 @@ class UpdateFirewall(neutronv20.UpdateCommand):
             dest='solowan',
             metavar="service True| False",
             help=_("Set the state of solowan's service"))
+        parser.add_argument(
+            '--local_id',
+            dest='local_id',
+            metavar="local_id IP",
+            help=_("Set the local_id IP of Optimizer"))
+
         router_sg = parser.add_mutually_exclusive_group()
         router_sg.add_argument(
             '--router',
@@ -126,6 +132,8 @@ class UpdateFirewall(neutronv20.UpdateCommand):
         #OaaS
         if parsed_args.solowan:
             data['solowan']= parsed_args.solowan
+        if parsed_args.local_id:
+            data['local_id']= parsed_args.local_id
         return {self.resource: data}
 
 

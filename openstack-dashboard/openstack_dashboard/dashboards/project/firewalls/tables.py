@@ -386,6 +386,8 @@ class FirewallsTable(tables.DataTable):
                                verbose_name=_("Associated Routers"))
 #CVG
     solowan = tables.Column('solowan', verbose_name=_('SoloWan'))
+    local_id = tables.Column('local_id', verbose_name=_('Optimizer_id'))
+
 
     status = tables.Column("status",
                            verbose_name=_("Status"),

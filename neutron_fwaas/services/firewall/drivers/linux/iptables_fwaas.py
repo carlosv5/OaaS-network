@@ -130,11 +130,15 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
                   {'fw_id': firewall['id'], 'tid': firewall['tenant_id']})
 #OaaS
         namespace = "qrouter-%s" % str(firewall['add-router-ids']).strip("u['']")
+        local_id = firewall['local_id'].split("/")[0]
+
         try:
             if firewall['admin_state_up']:
                 self._setup_firewall(agent_mode, apply_list, firewall)
 		#OaaS
                 self.solowan_service(firewall['solowan'],namespace)
+                self.solowan_localid(local_id,namespace)
+
             else:
                 self.apply_default_policy(agent_mode, apply_list, firewall)
         except (LookupError, RuntimeError):
@@ -371,3 +375,5 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf rm /var/run/opennop-%s.pid" % namespace,shell=True)
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf kill -9 %s" % PID, shell=True)
 
+    def solowan_localid(self,local_id,namespace):
+            subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf sed  -i  '/^localid/clocalid = %s' /etc/opennop/opennop-%s/opennop.conf" %(local_id ,namespace), shell=True)
