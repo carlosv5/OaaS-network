@@ -137,6 +137,10 @@ class UpdateFirewall(forms.SelfHandlingForm):
     local_id = forms.CharField(max_length=20,
                            label=_("local_id"),
                            required=True)
+    action = forms.ChoiceField(choices=[('optimization', _('OPTIMIZATION')), ('deduplication', _('DEDUPLICATION')),  ('optimization deduplication', _('BOTH'))],
+        label=_("Action")
+      )
+
 
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],

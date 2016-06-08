@@ -34,6 +34,11 @@ FWAAS_ALLOW = "allow"
 FWAAS_DENY = "deny"
 FWAAS_REJECT = "reject"
 FWAAS_OPTIMIZE = "optimize"
+# Firewall optimization action
+OPTIMIZATION ="optimization"
+DEDUPLICATION = "deduplication"
+BOTH = "optimization deduplication"
+
 # Firewall resource path prefix
 FIREWALL_PREFIX = "/fw"
 
@@ -164,7 +169,10 @@ class FirewallRuleConflict(nexception.Conflict):
 fw_valid_protocol_values = [None, constants.PROTO_NAME_TCP,
                             constants.PROTO_NAME_UDP,
                             constants.PROTO_NAME_ICMP]
+#OaaS
 fw_valid_action_values = [FWAAS_ALLOW, FWAAS_DENY, FWAAS_REJECT, FWAAS_OPTIMIZE]
+fw_valid_action_optimization_values = [OPTIMIZATION, DEDUPLICATION, BOTH]
+
 
 
 def convert_protocol(value):
@@ -345,6 +353,11 @@ RESOURCE_ATTRIBUTE_MAP = {
                                    'validate': {'type:ip_or_subnet_or_none':
                                                 None},
                                    'is_visible': True, 'default': None},
+        'action': {'allow_post': False, 'allow_put': True,
+                   'convert_to': convert_action_to_case_insensitive,
+                   'validate': {'type:values': fw_valid_action_optimization_values},
+                   'is_visible': True},
+
 
         'shared': {'allow_post': True, 'allow_put': True,
                    'default': False, 'convert_to': attr.convert_to_boolean,

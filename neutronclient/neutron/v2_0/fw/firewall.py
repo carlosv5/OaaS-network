@@ -100,6 +100,12 @@ class UpdateFirewall(neutronv20.UpdateCommand):
             dest='local_id',
             metavar="local_id IP",
             help=_("Set the local_id IP of Optimizer"))
+        parser.add_argument(
+            '--action',
+            dest='action',
+            metavar="action OPTIMIZATION|DEDUPLICATION|'OPTIMIZATION DEDUPLICATION'",
+            help=_("Set the action"))
+
 
         router_sg = parser.add_mutually_exclusive_group()
         router_sg.add_argument(
@@ -134,6 +140,9 @@ class UpdateFirewall(neutronv20.UpdateCommand):
             data['solowan']= parsed_args.solowan
         if parsed_args.local_id:
             data['local_id']= parsed_args.local_id
+        if parsed_args.action:
+            data['action']= parsed_args.action
+
         return {self.resource: data}
 
 
