@@ -380,7 +380,7 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf kill -9 %s" % PID, shell=True)
 
     def solowan_localid(self,local_id,namespace):
-            subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf sed  -i  '/^localid/clocalid = %s' /etc/opennop/opennop-%s/opennop.conf" %(local_id ,namespace), shell=True)
+            subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf sed  -i  '/^localid/clocalid %s' /etc/opennop/opennop-%s/opennop.conf" %(local_id ,namespace), shell=True)
     def solowan_action(self,action,namespace):
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf sed  -i  '/^optimization/c%s' /etc/opennop/opennop-%s/opennop.conf" %(action ,namespace), shell=True)
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf sed  -i  '/^deduplication/c%s' /etc/opennop/opennop-%s/opennop.conf" %(action ,namespace), shell=True)
