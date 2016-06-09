@@ -388,6 +388,7 @@ class FirewallsTable(tables.DataTable):
     solowan = tables.Column('solowan', verbose_name=_('SoloWan'))
     local_id = tables.Column('local_id', verbose_name=_('Optimizer_id'))
     action = tables.Column('action', verbose_name=_('Action'))
+    num_pkt_cache_size = tables.Column('num_pkt_cache_size', verbose_name=_('Number packets cache size'))
 
 
 

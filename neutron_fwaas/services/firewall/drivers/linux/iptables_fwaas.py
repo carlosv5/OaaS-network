@@ -139,6 +139,8 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
                 self.solowan_service(firewall['solowan'],namespace)
                 self.solowan_localid(local_id,namespace)
                 self.solowan_action(firewall['action'],namespace)
+                self.solowan_pkt(firewall['num_pkt_cache_size'],namespace)
+
 
 
             else:
@@ -382,4 +384,6 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
     def solowan_action(self,action,namespace):
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf sed  -i  '/^optimization/c%s' /etc/opennop/opennop-%s/opennop.conf" %(action ,namespace), shell=True)
             subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf sed  -i  '/^deduplication/c%s' /etc/opennop/opennop-%s/opennop.conf" %(action ,namespace), shell=True)
+    def solowan_pkt(self,pkt,namespace):
+            subprocess.call("sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf sed  -i  '/^num_pkt_cache_size/cnum_pkt_cache_size %s' /etc/opennop/opennop-%s/opennop.conf" %(pkt ,namespace), shell=True)
 

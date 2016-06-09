@@ -357,6 +357,10 @@ RESOURCE_ATTRIBUTE_MAP = {
                    'convert_to': convert_action_to_case_insensitive,
                    'validate': {'type:values': fw_valid_action_optimization_values},
                    'is_visible': True},
+        'num_pkt_cache_size': {'allow_post': False, 'allow_put': True,
+                             'convert_to': convert_port_to_string,
+                             'default': 131072, 'is_visible': True},
+
 
 
         'shared': {'allow_post': True, 'allow_put': True,

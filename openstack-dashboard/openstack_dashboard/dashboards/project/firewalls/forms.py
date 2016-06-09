@@ -140,6 +140,13 @@ class UpdateFirewall(forms.SelfHandlingForm):
     action = forms.ChoiceField(choices=[('optimization deduplication', _('BOTH')), ('deduplication', _('DEDUPLICATION')),  ('optimization', _('OPTIMIZATION'))],
         label=_("Action")
       )
+    num_pkt_cache_size = forms.CharField(
+        max_length=20,
+        label=_("Number Packets cache size"),
+        required=True,
+        help_text=_('Hash table max number of packets'
+                    ))
+
 
 
     admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),

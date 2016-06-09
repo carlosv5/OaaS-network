@@ -105,6 +105,12 @@ class UpdateFirewall(neutronv20.UpdateCommand):
             dest='action',
             metavar="action OPTIMIZATION|DEDUPLICATION|'OPTIMIZATION DEDUPLICATION'",
             help=_("Set the action"))
+        parser.add_argument(
+            '--pkt',
+            dest='num_pkt_cache_size',
+            metavar="pkt integer'",
+            help=_("Set the hash table max number of packets"))
+
 
 
         router_sg = parser.add_mutually_exclusive_group()
@@ -142,6 +148,9 @@ class UpdateFirewall(neutronv20.UpdateCommand):
             data['local_id']= parsed_args.local_id
         if parsed_args.action:
             data['action']= parsed_args.action
+        if parsed_args.pkt
+            data['num_pkt_cache_size']= parsed_args.pkt
+
 
         return {self.resource: data}
 

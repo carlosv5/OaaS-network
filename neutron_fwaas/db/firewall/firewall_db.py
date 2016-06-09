@@ -32,7 +32,8 @@ from sqlalchemy import orm
 from sqlalchemy.orm import exc
 
 from neutron_fwaas.extensions import firewall as fw_ext
-
+#OaaS
+import math
 
 LOG = logging.getLogger(__name__)
 
@@ -73,6 +74,8 @@ class Firewall(model_base.BASEV2, models_v2.HasId, models_v2.HasTenant):
     solowan = sa.Column(sa.Boolean)
     local_id = sa.Column(sa.String(20))
     action = sa.Column(sa.String(30))
+    num_pkt_cache_size = sa.Column(sa.Integer)
+
 
     firewall_policy_id = sa.Column(sa.String(36),
                                    sa.ForeignKey('firewall_policies.id'),
@@ -120,6 +123,13 @@ class Firewall_db_mixin(fw_ext.FirewallPluginBase, base_db.CommonDbMixin):
             raise fw_ext.FirewallRuleNotFound(firewall_rule_id=id)
 
     def _make_firewall_dict(self, fw, fields=None):
+        #OaaS PKT log 
+        if(fw['num_pkt_cache_size'] != None):
+            exp = math.log(fw['num_pkt_cache_size'],2)
+            exp = round(exp)
+            fw['num_pkt_cache_size'] = int (math.pow(2,exp))
+
+
         res = {'id': fw['id'],
                'tenant_id': fw['tenant_id'],
                'name': fw['name'],
@@ -130,6 +140,7 @@ class Firewall_db_mixin(fw_ext.FirewallPluginBase, base_db.CommonDbMixin):
                'solowan': fw['solowan'],
                'local_id': fw['local_id'],
                'action': fw['action'],
+               'num_pkt_cache_size': fw['num_pkt_cache_size'],
 
 
                'status': fw['status'],
