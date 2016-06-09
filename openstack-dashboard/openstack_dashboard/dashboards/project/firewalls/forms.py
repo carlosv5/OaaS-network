@@ -133,18 +133,20 @@ class UpdateFirewall(forms.SelfHandlingForm):
 #OaaS
     solowan = forms.ChoiceField(choices=[(True, _('UP')),
                                                 (False, _('DOWN'))],
-                                       label=_("SoloWan service"))
+                                       label=_("SoloWan service"),
+                                       help_text=_('Start or stop SoloWan service at the specified router')     )
     local_id = forms.CharField(max_length=20,
                            label=_("local_id"),
-                           required=True)
+                           required=True,
+                        help_text=_('It is the id that defines an optimizer. For example: 10.10.10.10. Local_id must be different in each optimizer')   )
     action = forms.ChoiceField(choices=[('optimization deduplication', _('BOTH')), ('deduplication', _('DEDUPLICATION')),  ('optimization', _('OPTIMIZATION'))],
-        label=_("Action")
+        label=_("Action"),help_text=_('Defines de action to do with SoloWan traffic')
       )
     num_pkt_cache_size = forms.CharField(
         max_length=20,
         label=_("Number Packets cache size"),
         required=True,
-        help_text=_('Hash table max number of packets'
+        help_text=_('Hash table max number of packets. For example 16384. Automatic 2 raised to the nearest exponent '
                     ))
 
 
