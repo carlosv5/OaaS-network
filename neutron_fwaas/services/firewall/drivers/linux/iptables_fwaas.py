@@ -136,10 +136,10 @@ class IptablesFwaasDriver(fwaas_base.FwaasDriverBase):
             if firewall['admin_state_up']:
                 self._setup_firewall(agent_mode, apply_list, firewall)
 		#OaaS
-                self.solowan_service(firewall['solowan'],namespace)
                 self.solowan_localid(local_id,namespace)
                 self.solowan_action(firewall['action'],namespace)
                 self.solowan_pkt(firewall['num_pkt_cache_size'],namespace)
+                self.solowan_service(firewall['solowan'],namespace)
 
 
 
