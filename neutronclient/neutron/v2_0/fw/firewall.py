@@ -148,8 +148,8 @@ class UpdateFirewall(neutronv20.UpdateCommand):
             data['local_id']= parsed_args.local_id
         if parsed_args.action:
             data['action']= parsed_args.action
-        if parsed_args.pkt:
-            data['num_pkt_cache_size']= parsed_args.pkt
+        if parsed_args.num_pkt_cache_size:
+            data['num_pkt_cache_size']= parsed_args.num_pkt_cache_size
 
 
         return {self.resource: data}
