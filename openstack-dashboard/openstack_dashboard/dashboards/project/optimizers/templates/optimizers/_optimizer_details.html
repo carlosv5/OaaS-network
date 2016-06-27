@@ -1,0 +1,45 @@
+{% load i18n sizeformat parse_date %}
+{% load url from future %}
+
+<div class="info row detail">
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ optimizer.name|default:_("-") }}</dd>
+
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ optimizer.description|default:_("-") }}</dd>
+
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ optimizer.id }} </dd>
+
+    <dt>{% trans "Project ID" %}</dt>
+    <dd>{{ optimizer.tenant_id }}</dd>
+
+    <dt>{% trans "Policy ID" %}</dt>
+    <dd>
+      {% url 'horizon:project:optimizers:policydetails' optimizer.optimizer_policy_id as policy_url %}
+      <a href="{{ policy_url }}">{{ optimizer.policy.name|default:optimizer.policy.id }}</a>
+    </dd>
+    <dt>{% trans "SoloWan" %}</dt>
+    <dd>{{ optimizer.solowan }}</dd>
+
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ optimizer.status }}</dd>
+
+    <dt>{% trans "Admin State Up" %}</dt>
+    <dd>{{ optimizer.admin_state_up|yesno|capfirst }}</dd>
+
+    <dt>{% trans "Routers" %}</dt>
+    <dd>
+      {% if routers %}
+      {% for router in routers %}
+      {% url 'horizon:project:routers:detail' router.id as router_url %}
+      <a href="{{ router_url }}">{{ router.name|default:router.id}}</a><br>
+      {% endfor %}
+      {% else %}
+      {% trans "-" %}
+      {% endif %}
+    </dd>
+  </dl>
+</div>

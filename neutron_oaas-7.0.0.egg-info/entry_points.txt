@@ -1,0 +1,7 @@
+[optimizer_drivers]
+neutron.services.optimizer.drivers.linux.iptables_oaas.IptablesOaasDriver = neutron_oaas.services.optimizer.drivers.linux.iptables_oaas:IptablesOaasDriver
+neutron.services.optimizer.drivers.varmour.varmour_oaas.vArmourOaasDriver = neutron_oaas.services.optimizer.drivers.varmour.varmour_oaas:vArmourOaasDriver
+
+[neutron.db.alembic_migrations]
+neutron-oaas = neutron_oaas.db.migration:alembic_migrations
+
