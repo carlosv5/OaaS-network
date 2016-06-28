@@ -41,7 +41,7 @@ parser.add_option('-c', '--configuration',
 parser.add_option('-r', '--installPath',
                       action='store',
                       dest='installPath',
-                      default='/tmp/OaaS',
+                      default='/tmp/OaaS-network',
                       help='Path of the git repository. Default: /tmp/OaaS-network ')
 
 parser.add_option('-i', '--install',
@@ -79,7 +79,7 @@ def install():
 
 
 	if options.node == "controller":
-                subprocess.call("cp -p" + options.installPath + "/horizon/static/horizon/js/horizon.optimizers.js " + options.packagesPath +"/horizon/static/horizon/js/horizon.optimizers.js",shell=True)
+                subprocess.call("cp -p " + options.installPath + "/horizon/static/horizon/js/horizon.optimizers.js " + options.packagesPath +"/horizon/static/horizon/js/horizon.optimizers.js",shell=True)
 		subprocess.call("cp -rp " + options.installPath + "/openstack-dashboard/ " + options.dashboardPath,shell=True)
 	sys.exit(0)
 #------------------------------------------Changes method
