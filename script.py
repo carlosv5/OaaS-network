@@ -80,7 +80,7 @@ def install():
 
 
 	if options.node == "controller":
-		subprocess.call("mv " + options.installPath + "/horizon " + options.packagesPath,shell=True)
+                subprocess.call("cp " + options.installPath + "/horizon/static/horizon/js/horizon.optimizers.js " + options.packagesPath +"/horizon/static/horizon/js/horizon.optimizers.js",shell=True)
 		subprocess.call("cp -r " + options.installPath + "/openstack-dashboard/ " + options.dashboardPath,shell=True)
 	sys.exit(0)
 #------------------------------------------Changes method
