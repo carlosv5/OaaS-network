@@ -149,7 +149,7 @@ def neutron():
 
 	changes(options.confPath + "/plugins/ml2/ml2_conf.ini","firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver","optimizer_driver = neutron.agent.linux.iptables_optimizer.OVSHybridIptablesOptimizerDriver","optimizer_driver = neutron.agent.linux.iptables_optimizer.OVSHybridIptablesOptimizerDriver")
 
-	changes(options.confPath + "/neutron.conf","service_provider=FIREWALL:Iptables:neutron.services.firewall.drivers.linux.iptables_fwaas.IptablesFwaasDriver","service_provider=OPTIMIZER:Iptables:neutron.services.optimizer.drivers.linux.iptables_oaas.IptablesOaasDriver","service_provider=OPTIMIZER:Iptables:neutron_oaas.services.optimizer.drivers.linux.iptables_oaas.IptablesOaasDriver")
+	changes(options.confPath + "/neutron.conf","service_provider=FIREWALL:Iptables:neutron.services.firewall.drivers.linux.iptables_fwaas.IptablesFwaasDriver","service_provider=OPTIMIZER:Iptables:neutron_oaas.services.optimizer.drivers.linux.iptables_oaas.IptablesOaasDriver","service_provider=OPTIMIZER:Iptables:neutron_oaas.services.optimizer.drivers.linux.iptables_oaas.IptablesOaasDriver")
 
 
 	#Uniq changes -> Firewall or optimizer
