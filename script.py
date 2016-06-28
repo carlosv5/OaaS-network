@@ -39,15 +39,16 @@ parser.add_option('-c', '--configuration',
                       default='/etc/neutron',
                       help='path of neutron configuration folder. Default: /etc/neutron')
 
-parser.add_option('-o', '--overwrite',
-                      action='store_true',
-                      dest='overwrite',
-                      help='overwrite /tmp/OaaS folder')
+parser.add_option('-r', '--installPath',
+                      action='store',
+                      dest='installPath',
+                      default='/tmp/OaaS',
+                      help='Path of the git repository. Default: /tmp/OaaS ')
 
 parser.add_option('-i', '--install',
                       action='store_true',
                       dest="installBoolean",
-                      help='Install Optimizer as a Service. It is neccessary to have git installed')
+                      help='Install Optimizer as a Service. It is neccessary to have downloaded the repository. InstallPath gives its path')
 
 
 (options, args) = parser.parse_args()
@@ -70,22 +71,15 @@ def main():
 
 
 def install():
-	if os.path.isdir("/tmp/OaaS") and options.overwrite == True:
-		subprocess.call("rm -rf /tmp/OaaS",shell=True)
-	else:
-		print("Lookup 'overwrite' action or check folder /tmp/OaaS")
-		sys.exit(0)
-	subprocess.call("mkdir /tmp/OaaS",shell=True)
-	subprocess.call("git clone https://github.com/carlosv5/OaaS-network /tmp/OaaS",shell=True)
-	subprocess.call("chmod -R +xr /tmp/OaaS/",shell=True)
-	subprocess.call("cp -r  /tmp/OaaS/neutronclient/ /usr/lib/python2.7/dist-packages/",shell=True)
-	subprocess.call("cp -r  /tmp/OaaS/neutron_oaas/ /usr/lib/python2.7/dist-packages/",shell=True)
-	subprocess.call("cp -r  /tmp/OaaS/neutron_oaas-7.0.0.egg-info/ /usr/lib/python2.7/dist-packages/",shell=True)
-	subprocess.call("cp -r  /tmp/OaaS/etc/neutron/ /etc/neutron/",shell=True)
+	subprocess.call("chmod -R +xr " + options.installPath ,shell=True)
+	subprocess.call("cp -r " + options.installPath + "/neutronclient/ /usr/lib/python2.7/dist-packages/",shell=True)
+	subprocess.call("cp -r  " + options.installPath + "/neutron_oaas/ /usr/lib/python2.7/dist-packages/",shell=True)
+	subprocess.call("cp -r  " + options.installPath + "/neutron_oaas-7.0.0.egg-info/ /usr/lib/python2.7/dist-packages/",shell=True)
+	subprocess.call("cp -r  " + options.installPath + "/etc/neutron/ /etc/neutron/",shell=True)
 	if options.node == "controller":
-		subprocess.call("mv /tmp/OaaS/openstack-dashboard/static/horizon/js/horizon.optimizers.js /tmp/OaaS/openstack-dashboard/static/horizon/js/optimizers.js",shell=True)
-		subprocess.call("cp -r  /tmp/OaaS/openstack-dashboard/ /usr/share/",shell=True)
-	subprocess.call("cp -r  /tmp/OaaS/neutron/ /usr/lib/python2.7/dist-packages/",shell=True)
+		subprocess.call("mv " + options.installPath + "/openstack-dashboard/static/horizon/js/horizon.optimizers.js /tmp/OaaS/openstack-dashboard/static/horizon/js/optimizers.js",shell=True)
+		subprocess.call("cp -r " + options.installPath + "/openstack-dashboard/ /usr/share/",shell=True)
+	subprocess.call("cp -r  " + options.installPath + "/neutron/ /usr/lib/python2.7/dist-packages/",shell=True)
 	sys.exit(0)
 #------------------------------------------Changes method
 def changes(path, search, check, change):
