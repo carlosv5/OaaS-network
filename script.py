@@ -9,7 +9,6 @@ parser.add_option('-n', '--node',
                       action='store',
                       dest='node',
                       choices=['network', 'controller'],
-                      default='network',
                       help='Node to run on: network or controller')
 
 parser.add_option('-s', '--service',
@@ -18,7 +17,7 @@ parser.add_option('-s', '--service',
                       dest='service',
                       choices=['optimizer', 'firewall'],
                       default='optimizer',
-                      help='Service to run: optimizer or firewall')
+                      help='Service to run: optimizer or firewall. Default: optimizer')
 
 #PATH
 parser.add_option('-p', '--package',
@@ -363,7 +362,9 @@ def dashboard():
 	subprocess.call(options.dashboardPath + "/manage.py compress",shell=True)
 
 
-
+if not options.node:   # if node is not given
+    parser.error('Node not given. Do it with -n or --node. Options: network, controller')
+    sys.exit(1)
 if(options.installBoolean):
 	install()
 main()
