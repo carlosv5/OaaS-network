@@ -72,14 +72,16 @@ def main():
 
 def install():
 	subprocess.call("chmod -R +xr " + options.installPath ,shell=True)
-	subprocess.call("cp -r " + options.installPath + "/neutronclient/ /usr/lib/python2.7/dist-packages/",shell=True)
-	subprocess.call("cp -r  " + options.installPath + "/neutron_oaas/ /usr/lib/python2.7/dist-packages/",shell=True)
-	subprocess.call("cp -r  " + options.installPath + "/neutron_oaas-7.0.0.egg-info/ /usr/lib/python2.7/dist-packages/",shell=True)
-	subprocess.call("cp -r  " + options.installPath + "/etc/neutron/ /etc/neutron/",shell=True)
+	subprocess.call("cp -r " + options.installPath + "/neutronclient/ " + options.packagesPath,shell=True)
+	subprocess.call("cp -r  " + options.installPath + "/neutron_oaas/ " + options.packagesPath,shell=True)
+	subprocess.call("cp -r  " + options.installPath + "/neutron_oaas-7.0.0.egg-info/ " + options.packagesPath,shell=True)
+	subprocess.call("cp -r  " + options.installPath + "/neutron/ " + options.packagesPath,shell=True)
+	subprocess.call("cp -r  " + options.installPath + "/etc/neutron/ " + options.confPath,shell=True)
+
+
 	if options.node == "controller":
-		subprocess.call("mv " + options.installPath + "/openstack-dashboard/static/horizon/js/horizon.optimizers.js /tmp/OaaS/openstack-dashboard/static/horizon/js/optimizers.js",shell=True)
-		subprocess.call("cp -r " + options.installPath + "/openstack-dashboard/ /usr/share/",shell=True)
-	subprocess.call("cp -r  " + options.installPath + "/neutron/ /usr/lib/python2.7/dist-packages/",shell=True)
+		subprocess.call("mv " + options.installPath + "/horizon " + options.packagesPath,shell=True)
+		subprocess.call("cp -r " + options.installPath + "/openstack-dashboard/ " + options.dashboardPath,shell=True)
 	sys.exit(0)
 #------------------------------------------Changes method
 def changes(path, search, check, change):
