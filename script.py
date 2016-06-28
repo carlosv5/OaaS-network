@@ -42,7 +42,7 @@ parser.add_option('-r', '--installPath',
                       action='store',
                       dest='installPath',
                       default='/tmp/OaaS',
-                      help='Path of the git repository. Default: /tmp/OaaS ')
+                      help='Path of the git repository. Default: /tmp/OaaS-network ')
 
 parser.add_option('-i', '--install',
                       action='store_true',
@@ -71,16 +71,16 @@ def main():
 
 def install():
 	subprocess.call("chmod -R +xr " + options.installPath ,shell=True)
-	subprocess.call("cp -r " + options.installPath + "/neutronclient/ " + options.packagesPath,shell=True)
-	subprocess.call("cp -r  " + options.installPath + "/neutron_oaas/ " + options.packagesPath,shell=True)
-	subprocess.call("cp -r  " + options.installPath + "/neutron_oaas-7.0.0.egg-info/ " + options.packagesPath,shell=True)
-	subprocess.call("cp -r  " + options.installPath + "/neutron/ " + options.packagesPath,shell=True)
-	subprocess.call("cp -r  " + options.installPath + "/etc/neutron/ " + options.confPath,shell=True)
+	subprocess.call("cp -rp " + options.installPath + "/neutronclient/ " + options.packagesPath,shell=True)
+	subprocess.call("cp -rp  " + options.installPath + "/neutron_oaas/ " + options.packagesPath,shell=True)
+	subprocess.call("cp -rp  " + options.installPath + "/neutron_oaas-7.0.0.egg-info/ " + options.packagesPath,shell=True)
+	subprocess.call("cp -rp  " + options.installPath + "/neutron/ " + options.packagesPath,shell=True)
+	subprocess.call("cp -rp  " + options.installPath + "/etc/neutron/ " + options.confPath,shell=True)
 
 
 	if options.node == "controller":
-                subprocess.call("cp " + options.installPath + "/horizon/static/horizon/js/horizon.optimizers.js " + options.packagesPath +"/horizon/static/horizon/js/horizon.optimizers.js",shell=True)
-		subprocess.call("cp -r " + options.installPath + "/openstack-dashboard/ " + options.dashboardPath,shell=True)
+                subprocess.call("cp -p" + options.installPath + "/horizon/static/horizon/js/horizon.optimizers.js " + options.packagesPath +"/horizon/static/horizon/js/horizon.optimizers.js",shell=True)
+		subprocess.call("cp -rp " + options.installPath + "/openstack-dashboard/ " + options.dashboardPath,shell=True)
 	sys.exit(0)
 #------------------------------------------Changes method
 def changes(path, search, check, change):
