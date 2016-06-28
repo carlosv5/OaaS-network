@@ -2,8 +2,6 @@
 import os,sys,subprocess
 from optparse import OptionParser
 
-
-
 #-----------------------------------------------Script options
 parser = OptionParser(usage='usage: %prog [options] ')
 parser.add_option('-n', '--node',
@@ -12,7 +10,7 @@ parser.add_option('-n', '--node',
                       dest='node',
                       choices=['network', 'controller'],
                       default='network',
-                      help='Node to run on')
+                      help='Node to run on: network or controller')
 
 parser.add_option('-s', '--service',
                       type='choice',
@@ -20,31 +18,31 @@ parser.add_option('-s', '--service',
                       dest='service',
                       choices=['optimizer', 'firewall'],
                       default='optimizer',
-                      help='Service to run')
+                      help='Service to run: optimizer or firewall')
 
 #PATH
 parser.add_option('-p', '--package',
                       action='store',
                       dest='packagesPath',
                       default='/usr/lib/python2.7/dist-packages',
-                      help='Path of dist-packages')
+                      help='Path of dist-packages. Default: /usr/lib/python2.7/dist-packages')
 
 parser.add_option('-d', '--dashboard',
                       action='store',
                       dest='dashboardPath',
                       default='/usr/share/openstack-dashboard',
-                      help='path of openstack-dashboard')
+                      help='path of openstack-dashboard. Default: /usr/share/openstack-dashboard')
 
 parser.add_option('-c', '--configuration',
                       action='store',
                       dest='confPath',
                       default='/etc/neutron',
-                      help='path of neutron configuration folder')
+                      help='path of neutron configuration folder. Default: /etc/neutron')
 
-parser.add_option('-o', '--override',
+parser.add_option('-o', '--overwrite',
                       action='store_true',
-                      dest='override',
-                      help='Override /tmp/OaaS folder')
+                      dest='overwrite',
+                      help='overwrite /tmp/OaaS folder')
 
 parser.add_option('-i', '--install',
                       action='store_true',
@@ -72,10 +70,10 @@ def main():
 
 
 def install():
-	if os.path.isdir("/tmp/OaaS") and options.override == True:
+	if os.path.isdir("/tmp/OaaS") and options.overwrite == True:
 		subprocess.call("rm -rf /tmp/OaaS",shell=True)
 	else:
-		print("Lookup 'override' action or check folder /tmp/OaaS")
+		print("Lookup 'overwrite' action or check folder /tmp/OaaS")
 		sys.exit(0)
 	subprocess.call("mkdir /tmp/OaaS",shell=True)
 	subprocess.call("git clone https://github.com/carlosv5/OaaS-network /tmp/OaaS",shell=True)
