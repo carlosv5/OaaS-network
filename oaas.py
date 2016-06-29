@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import os,sys,subprocess
+import os,sys,subprocess,time
 from optparse import OptionParser
 
 #-----------------------------------------------Script options
@@ -47,40 +47,61 @@ parser.add_option('-r', '--installPath',
 parser.add_option('-i', '--install',
                       action='store_true',
                       dest="installBoolean",
-                      help='Install Optimizer as a Service. It is neccessary to have downloaded the repository. InstallPath gives its path')
+                      help='Install Optimizer as a Service. It is neccessary to have downloaded the entire repository. InstallPath gives its path')
 
 
 (options, args) = parser.parse_args()
 
 
 def main():
+        print("----->Initializing neutron_oaas")
 	neutron_oaas()
+        print("----->Initializing neutron")
 	neutron()
+        print("----->Initializing neutronclient")
 	neutronclient()
 	if options.node == "controller":
+        	print("----->Initializing database")
 		database()
+       		print("----->Initializing dashboard")
 		dashboard()
 		
-	if options.node == "controller":
-		subprocess.call("service neutron-server restart",shell=True)
-		subprocess.call("service apache2 restart",shell=True)
-	else:
-		subprocess.call("service neutron-l3-agent restart",shell=True)
+        if options.node == "controller":
+                print("----->Restarting neutron-server, wait please...")
+                subprocess.call("service neutron-server restart",shell=True)
+                print("----->Restarted neutron-server  succesfully")
+                print("----->Restarting apache2, wait please...")
+                subprocess.call("service apache2 restart",shell=True)
+                print("----->Restarted apache2  succesfully")
+        else:
+                import time
+                print("----->Restarting l3 agent. It takes 15 seconds, wait please...")
+                time.sleep(15)
+                subprocess.call("service neutron-l3-agent restart",shell=True)
+                print("----->Restarted l3 agent succesfully")
+
 
 
 
 def install():
 	subprocess.call("chmod -R +xr " + options.installPath ,shell=True)
+        print("----->Installing neutron")
 	subprocess.call("cp -rp " + options.installPath + "/neutronclient/ " + options.packagesPath,shell=True)
+        print("----->Installing neutronclient")
 	subprocess.call("cp -rp  " + options.installPath + "/neutron_oaas/ " + options.packagesPath,shell=True)
+        print("----->Installing neutron_oaas")
 	subprocess.call("cp -rp  " + options.installPath + "/neutron_oaas-7.0.0.egg-info/ " + options.packagesPath,shell=True)
+        print("----->Installing neutron_oaas info")
 	subprocess.call("cp -rp  " + options.installPath + "/neutron/ " + options.packagesPath,shell=True)
+        print("----->Installing neutron configuration")
 	subprocess.call("cp -rp  " + options.installPath + "/etc/neutron/ " + options.confPath,shell=True)
 
 
 	if options.node == "controller":
+        	print("----->Installing oaas dashboard")
                 subprocess.call("cp -p " + options.installPath  + "/horizon/static/horizon/js/horizon.optimizers.js " + options.packagesPath +"/horizon/static/horizon/js/horizon.optimizers.js",shell=True)
 		subprocess.call("cp -rp " + options.installPath + "/openstack-dashboard/* "  + options.dashboardPath,shell=True)
+        print("----->Remember to add " + options.service + " to your service plugins [/etc/neutron/neutron.conf]")
 	sys.exit(0)
 #------------------------------------------Changes method
 def changes(path, search, check, change):
