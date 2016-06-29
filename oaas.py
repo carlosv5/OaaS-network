@@ -101,7 +101,7 @@ def install():
         	print("----->Installing oaas dashboard")
                 subprocess.call("cp -p " + options.installPath  + "/horizon/static/horizon/js/horizon.optimizers.js " + options.packagesPath +"/horizon/static/horizon/js/horizon.optimizers.js",shell=True)
 		subprocess.call("cp -rp " + options.installPath + "/openstack-dashboard/* "  + options.dashboardPath,shell=True)
-        print("----->Remember to add " + options.service + " to your service plugins [/etc/neutron/neutron.conf]")
+       		print("----->Remember to add " + options.service + " to your service plugins [/etc/neutron/neutron.conf]")
 	sys.exit(0)
 #------------------------------------------Changes method
 def changes(path, search, check, change):
