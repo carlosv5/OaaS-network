@@ -94,7 +94,7 @@ def install():
         print("----->Installing neutron_oaas info")
 	subprocess.call("cp -rp  " + options.installPath + "/neutron/ " + options.packagesPath,shell=True)
         print("----->Installing neutron configuration")
-	subprocess.call("cp -rp  " + options.installPath + "/etc/neutron/ " + options.confPath,shell=True)
+	subprocess.call("cp -rp  " + options.installPath + "/etc/neutron/* " + options.confPath,shell=True)
 
 
 	if options.node == "controller":
