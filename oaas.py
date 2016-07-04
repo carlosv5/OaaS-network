@@ -74,9 +74,6 @@ def main():
                 subprocess.call("service apache2 restart",shell=True)
                 print("----->Restarted apache2  succesfully")
         else:
-                import time
-                print("----->Restarting l3 agent. It takes 15 seconds, wait please...")
-                time.sleep(15)
                 subprocess.call("service neutron-l3-agent restart",shell=True)
                 print("----->Restarted l3 agent succesfully")
 
