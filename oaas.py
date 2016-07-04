@@ -41,8 +41,8 @@ parser.add_option('-c', '--configuration',
 parser.add_option('-r', '--installPath',
                       action='store',
                       dest='installPath',
-                      default='/tmp/OaaS-network',
-                      help='Path of the git repository. Default: /tmp/OaaS-network ')
+                      default= os.path.dirname(os.path.abspath(__file__)),
+                      help='Path of the git repository. Default: Path of the script ')
 
 parser.add_option('-i', '--install',
                       action='store_true',
