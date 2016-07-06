@@ -307,7 +307,6 @@ class AddOptimizerAction(workflows.Action):
         name = _("AddOptimizer")
         permissions = ('openstack.services.network',)
         help_text = _("Create an optimizer  based on a policy.\n\n"
-                      "The optimizer can also works as a optimizer.\n"
                       "A policy must be selected. "
                       "Other fields are optional.")
 
