@@ -35,9 +35,9 @@ OAAS_DENY = "deny"
 OAAS_REJECT = "reject"
 OAAS_OPTIMIZE = "optimize"
 # Optimizer optimization action
-OPTIMIZATION ="optimization"
-DEDUPLICATION = "deduplication"
-BOTH = "optimization deduplication"
+COMPRESSION ="optimization compression"
+DEDUPLICATION = "optimization deduplication"
+BOTH = "optimization combined"
 
 # Optimizer resource path prefix
 OPTIMIZER_PREFIX = "/opt"
@@ -171,7 +171,7 @@ opt_valid_protocol_values = [None, constants.PROTO_NAME_TCP,
                             constants.PROTO_NAME_ICMP]
 #OaaS
 opt_valid_action_values = [OAAS_ALLOW, OAAS_DENY, OAAS_REJECT, OAAS_OPTIMIZE]
-opt_valid_action_optimization_values = [OPTIMIZATION, DEDUPLICATION, BOTH]
+opt_valid_action_optimization_values = [COMPRESSION, DEDUPLICATION, BOTH]
 
 
 

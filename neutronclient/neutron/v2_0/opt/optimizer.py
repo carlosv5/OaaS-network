@@ -103,7 +103,7 @@ class UpdateOptimizer(neutronv20.UpdateCommand):
         parser.add_argument(
             '--action',
             dest='action',
-            metavar="action OPTIMIZATION|DEDUPLICATION|'OPTIMIZATION DEDUPLICATION'",
+            metavar="action 'optimization (compression|deduplication|combined)'",
             help=_("Set the action"))
         parser.add_argument(
             '--pkt',

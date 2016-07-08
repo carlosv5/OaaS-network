@@ -139,7 +139,7 @@ class UpdateOptimizer(forms.SelfHandlingForm):
                            label=_("local_id"),
                            required=True,
                         help_text=_('It is the id that defines an optimizer. For example: 10.10.10.10. Local_id must be different in each optimizer')   )
-    action = forms.ChoiceField(choices=[('optimization deduplication', _('BOTH')), ('deduplication', _('DEDUPLICATION')),  ('optimization', _('OPTIMIZATION'))],
+    action = forms.ChoiceField(choices=[('optimization combined', _('BOTH')), ('optimization deduplication', _('DEDUPLICATION')),  ('optimization compression', _('COMPRESSION'))],
         label=_("Action"),help_text=_('Defines de action to do with SoloWan traffic')
       )
     num_pkt_cache_size = forms.CharField(
