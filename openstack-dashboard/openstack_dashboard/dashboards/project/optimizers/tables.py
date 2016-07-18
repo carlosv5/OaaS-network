@@ -384,7 +384,7 @@ class OptimizersTable(tables.DataTable):
                                        verbose_name=_("Policy"))
     router_ids = tables.Column(get_routers_name,
                                verbose_name=_("Associated Routers"))
-#CVG
+#OaaS
     solowan = tables.Column('solowan', verbose_name=_('SoloWan'))
     local_id = tables.Column('local_id', verbose_name=_('Optimizer_id'))
     action = tables.Column('action', verbose_name=_('Action'))
